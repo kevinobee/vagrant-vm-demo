@@ -5,5 +5,8 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "windows_2012_r2"
   config.vm.network "forwarded_port", guest: 80, host: 8080, id: "iis-defaultsite"
+
+ # TODO config.vm.synced_folder "C:\\ProgramData\\chocolatey\\lib", "/ProgramData/chocolatey/lib"
+
   config.vm.provision "shell", path: "provision-web.ps1"
 end
